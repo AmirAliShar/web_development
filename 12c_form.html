@@ -1,0 +1,73 @@
+<?php
+// Connect to database (change credentials as needed)
+$db = mysql_connect('localhost', 'root', '') or die('Cannot connect');
+mysql_select_db('expenses') or die('Cannot select DB');
+
+// Create table if not exists
+mysql_query("CREATE TABLE IF NOT EXISTS expenses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category VARCHAR(50),
+    description TEXT,
+    amount FLOAT,
+    expense_date DATE
+)");
+
+// Handle form submission
+if ($_POST) {
+    // Insert new expense
+    $sql = "INSERT INTO expenses (category, description, amount, expense_date) 
+            VALUES ('$_POST[category]', '$_POST[description]', $_POST[amount], '$_POST[expense_date]')";
+    mysql_query($sql);
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 20px auto; }
+        input, select, textarea { margin-bottom: 10px; width: 100%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Add New Expense</h1>
+    <form method="post">
+        <select name="category" required>
+            <option value="">Select Category</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Bills</option>
+            <option>Other</option>
+        </select><br>
+        
+        <textarea name="description" placeholder="Description" required></textarea><br>
+        
+        <input type="number" name="amount" step="0.01" min="0" placeholder="Amount" required><br>
+        
+        <input type="date" name="expense_date" id="dateField" required><br>
+        
+        <input type="submit" value="Save Expense">
+    </form>
+
+    <h2>Expense Summary</h2>
+    <p>Total Expenses: $0.00</p>
+    <table>
+        <tr><th>Category</th><th>Total</th></tr>
+        <!-- Category rows would appear here after data is entered -->
+    </table>
+
+    <script>
+        document.getiElementById('dateField').valueAsDate = new Date();
+        document.querySelector('form').onsubmit = function() {
+            if (document.querySelector('[name="amount"]').value <= 0) {
+                alert('Amount must be positive!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+</body>
+</html>

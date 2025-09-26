@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Element Form</title>
+    <style>
+        .form-container {
+            border: 2px solid black;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form>
+           
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email"><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Your Password"><br><br>
+            
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br><br>
+            
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="">Select</option>
+                <option value="pakistan">Pakistan</option>
+                <option value="china">China</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="iran">Iran</option>
+            </select><br><br>
+            
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes"><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
