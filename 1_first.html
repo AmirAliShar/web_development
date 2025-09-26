@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head> <title>Login Form</title> </head>
+<body>
+<h2>Login Form</h2>
+<form method="post">
+  <label>Username:</label>
+  <input type="text" name="username" required><br><br>
+  <label>Password:</label>
+  <input type="password" name="password" required><br><br>
+  <input type="submit" value="Login">
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  // Replace " Your Roll No " with your actual roll number if needed
+  if ($username === "22CS057" && $password === "22CS") {
+    echo "<h3 style='color: green;'>Welcome, $username!</h3>";
+  } else {
+    echo "<h3 style='color: red;'>Invalid username or password. Please try again.</h3>";
+}}
+?>
+</body>
+</html>
