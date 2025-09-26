@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Info Form</title>
+    <style>
+        .container {
+            width: 600px;
+            background: white;
+            padding: 20px;
+            border: 2px solid black;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+       
+        .btn {
+            text-align: center;
+            margin-top: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Account Info:</h2>
+        <form id="accountForm">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" value="Your Name"></td>
+                </tr>
+                <tr>
+                    <td>Fathers Name:</td>
+                    <td><input type="text" value="Fathers Name"></td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td><input type="text" value="Surname"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" value="Alphanumeric"></td>
+                </tr>
+                <tr>
+                    <td>Re-type Password:</td>
+                    <td><input type="password" value="Again Type Password"></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td class="dob-input"><input type="text" placeholder="E.g: DD-MM-YYYY"></td>
+                </tr>
+                <tr>
+                    <td>Cell NO:</td>
+                    <td><input type="text" value="0333333333333"></td>
+                </tr>
+                <tr>
+                    <td>Country:</td>
+                    <td>
+                        <select>
+                            <option>Select Option</option>
+                                <option>Pakistan</option> 
+                                <option>USA</option> 
+                                <option>UK</option> 
+                                <option>UAE</option> 
+                            </select><br> 
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select Gender:</td>
+                    <td class="gender">
+                        <input type="radio" name="gender"> Male
+                        <input type="radio" name="gender"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select Language(s):</td>
+                    <td class="languages">
+                        <input type="checkbox"> English
+                        <input type="checkbox"> Sindhi
+                        <input type="checkbox"> Urdu
+                    </td>
+                </tr>
+            </table>
+            <div class="btn">
+                <button type="button">Proceed</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

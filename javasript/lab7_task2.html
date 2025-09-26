@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Task2</title> 
+</head> 
+<body> 
+    <script> 
+        function validate_nic(event){ 
+ 
+            var nic = document.getElementById("nic").value; 
+            pattern1=/^\d{5}-\d{7}-\d{1}$/; 
+            pattern2=/^\d{13}$/; 
+ 
+            if (pattern1.test(nic) || pattern2.test(nic)){ 
+                alert('Validated!'); 
+            } 
+            else{ 
+                alert('Enter valid 13-digit NIC Number!'); 
+                event.preventDefault(); 
+            } 
+        } 
+    </script> 
+    <form> 
+        Enter your NIC Number: <input type="text" name="nic" id="nic" placeholder="42101-1234567-
+1"><br> 
+        <input type="submit" name="submit" value="Submit" onclick="validate_nic(event)"> 
+ 
+    </form> 
+</body> 
+</html> 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; transition: background 0.3s, color 0.3s; }
+        .container { max-width: 800px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); transition: background 0.3s; }
+        .header { display: flex; justify-content: space-between; align-items: center; }
+        .profile img { width: 50px; height: 50px; border-radius: 50%; cursor: pointer; }
+        .toggle { cursor: pointer; padding: 5px 10px; background: #007BFF; color: white; border: none; border-radius: 5px; }
+        .survey, .progress, .quizzes { margin-top: 20px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        .submit-btn { background: #28a745; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+        .course-list { list-style: none; padding: 0; }
+        .course-list li { margin: 10px 0; }
+        
+        /* Dark Mode Styling */
+        .dark-mode { background-color: #1e1e1e; color: #f4f4f4; }
+        .dark-mode .container { background: #2c2c2c; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); }
+        .dark-mode .toggle { background: #ff9800; }
+        .dark-mode .submit-btn { background: #4CAF50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Student Dashboard</h2>
+            <button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+        <div class="profile">
+            <label for="profile-pic">
+                <img id="profile-img" src="https://via.placeholder.com/50" alt="Profile Picture">
+            </label>
+            <input type="file" id="profile-pic" style="display:none" onchange="updateProfilePic(event)">
+        </div>
+        <div class="progress">
+            <h3>Course Progress</h3>
+            <ul class="course-list">
+                <li>Course 1: <progress value="75" max="100"></progress> 75%</li>
+                <li>Course 2: <progress value="50" max="100"></progress> 50%</li>
+                <li>Course 3: <progress value="30" max="100"></progress> 30%</li>
+            </ul>
+        </div>
+        <div class="quizzes">
+            <h3>Upcoming Quizzes</h3>
+            <ul>
+                <li>Quiz 1: Introduction to Programming - Due: 01-Apr-2025</li>
+                <li>Quiz 2: Data Structures - Due: 05-Apr-2025</li>
+                <li>Quiz 3: Web Development - Due: 10-Apr-2025</li>
+            </ul>
+        </div>
+        <div class="survey">

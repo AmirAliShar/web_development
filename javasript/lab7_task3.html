@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Task3</title> 
+</head> 
+<body> 
+    <script> 
+        function validate(event){ 
+            event.preventDefault(); 
+            const text = document.getElementsByClassName("text"); 
+            pattern = /^[a-zA-Z\s]+$/ 
+            var counter = 0; 
+             
+            for(var i = 0; i < (text.length); i++){ 
+                if(pattern.test(text[i].value)){ 
+                    continue; 
+                } 
+                else{ 
+                    counter++; 
+                } 
+            } 
+            if (counter>0){ 
+                alert("Invalid Data"); 
+            } 
+            else{ 
+                alert("Validated") 
+            } 
+        } 
+    </script> 
+ 
+    <form> 
+        <fieldset> 
+        <legend>Bio Data</legend> 
+        <table> 
+            <tr> 
+                <td>Name:</td> 
+                <td><input type="text" class="text" name="name"></td> 
+            </tr> 
+            <tr> 
+                <td>Caste:</td> 
+                <td><input type="text" class="text" name="caste"></td> 
+            </tr> 
+            <tr> 
+                <td>Roll No:</td> 
+                <td><input type="text" class="text" name="rollno"></td> 
+            </tr> 
+            <tr> 
+                <td>Department:</td> 
+                <td><input type="text" class="text" name="department"></td> 
+            </tr> 
+        </table> 
+        <input type="submit" name="submit" value="Submit" onclick="validate(event)">         
+    </fieldset> 
+    </form> 
+</body> 
+</html> 

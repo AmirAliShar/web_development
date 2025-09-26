@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+</head>
+<body>
+    <h1>Age Calculator</h1>
+    <label for="dob">Enter your Date of Birth:</label>
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateAge() {
+            const dobInput = document.getElementById('dob').value;
+            if (!dobInput) {
+                alert("Please enter your date of birth.");
+                return;
+            }
+
+            const dob = new Date(dobInput);
+            const now = new Date();
+
+            let years = now.getFullYear() - dob.getFullYear();
+            let months = now.getMonth() - dob.getMonth();
+            let days = now.getDate() - dob.getDate();
+
+            if (months < 0 || (months === 0 && days < 0)) {
+                years--;
+                months += 12;
+            }
+
+            if (days < 0) {
+                const prevMonth = new Date(now.getFullYear(), now.getMonth() - 1, dob.getDate()); //get the day of the previous month.
+                const lastDayOfPrevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate(); //get the last day of the previous month.
+                days = lastDayOfPrevMonth - (dob.getDate() - now.getDate()); //calculating days by subtracting the current day from the last day of the previous month.
+                months--;
+                if(months < 0){
+                    months = 11;
+                }
+            }
+
+            document.getElementById('result').innerHTML = `
+                Your age is: ${years} years, ${months} months, and ${days} days.
+            `;
+        }
+    </script>
+</body>
+</html>
